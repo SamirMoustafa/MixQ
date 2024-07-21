@@ -57,7 +57,7 @@ This is the official repository for the paper "Efficient Mixed Precision Quantiz
      python tasks_per_node/gcn_with_ogb_plus_degree_quant.py
      ```
 * Tasks per Graph
-  * FP32 results for TUDataset in Table 3 can be reproduced by running the following commands:
+  * FP32 results for TUDataset in Table 3 can be reproduced by running the following command:
   ```bash
   python examples/gin_tudataset_fp32.py
   ```
