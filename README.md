@@ -1,4 +1,13 @@
-# Mixed Precision Quantization in Graph Neural Networks (MixQ-GNN)
+<div align="center">
+<img src="./assets/MixQ-logo.png" width="150">
+
+<h1> Mixed Precision Quantization in Graph Neural Networks (MixQ-GNN)
+
+![python-3.9](https://img.shields.io/badge/python-3.11.5-blue)
+![license](https://img.shields.io/badge/license-MIT-green)
+_________________________
+</div>
+
 This is the official repository for the paper "Efficient Mixed Precision Quantization in Graph Neural Networks".
 
 ## Getting Started
