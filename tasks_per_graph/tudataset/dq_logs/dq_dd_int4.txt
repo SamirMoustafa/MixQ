@@ -1,0 +1,21 @@
+Running on DD
+Namespace(epochs=200, batch_size=128, num_layers=5, hidden=64, lr=0.001, wd=4e-05, noise=1.0, lr_decay_factor=0.5, lr_decay_step_size=50, path='../data/', outdir='./output/redditBINexps', DQ=True, low=0.1, change=0.1, sample_prop=None, fp32=False, int8=False, int4=True, ste_abs=False, ste_mom=False, gc_abs=False, gc_mom=False, ste_per=False, gc_per=True)
+Downloading https://www.chrsmrrs.com/graphkerneldatasets/DD.zip
+Processing...
+Done!
+Generating ProbabilisticHighDegreeMask: {'prob_mask_low': 0.1, 'prob_mask_change': 0.1}
+model has 47424 parameters
+Fold: 1, Loss: 0.01: 100%|███████| 200/200 [5:11:56<00:00, 93.58s/it, acc=64.41]
+Fold: 2, Loss: 0.00: 100%|███████| 200/200 [4:27:10<00:00, 80.15s/it, acc=64.41]
+Fold: 3, Loss: 0.00: 100%|███████| 200/200 [3:12:29<00:00, 57.75s/it, acc=72.88]
+Fold: 4, Loss: 0.00: 100%|███████| 200/200 [3:12:18<00:00, 57.69s/it, acc=76.27]
+Fold: 5, Loss: 0.01: 100%|███████| 200/200 [3:14:50<00:00, 58.45s/it, acc=70.34]
+Fold: 6, Loss: 0.00: 100%|███████| 200/200 [3:13:18<00:00, 57.99s/it, acc=75.42]
+Fold: 7, Loss: 0.00: 100%|██████| 200/200 [7:14:44<00:00, 130.42s/it, acc=76.27]
+Fold: 8, Loss: 0.00: 100%|██████| 200/200 [7:53:39<00:00, 142.10s/it, acc=66.95]
+Fold: 9, Loss: 0.00: 100%|██████| 200/200 [6:48:51<00:00, 122.66s/it, acc=60.68]
+Fold: 10, Loss: 0.00: 100%|█████| 200/200 [6:40:38<00:00, 120.19s/it, acc=69.23]
+Val Loss: 0.5100, Test Accuracy: 72.745 ± 2.925, Duration: 18419.730
+Result - 72.745 ± 2.925
+
+Process finished with exit code 0

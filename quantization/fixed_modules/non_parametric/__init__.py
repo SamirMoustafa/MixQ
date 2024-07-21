@@ -1,0 +1,5 @@
+from quantization.fixed_modules.non_parametric.arbitrary_function import QNonParametricFunction1D
+from quantization.fixed_modules.non_parametric.activations import QReLU, QSigmoid
+from quantization.fixed_modules.non_parametric.message_passing import QMessagePassing
+from quantization.fixed_modules.non_parametric.max_pooling import QMaxPooling2D
+from quantization.fixed_modules.non_parametric.input_quantizer import QInput

@@ -1,0 +1,52 @@
+dataset_name: PROTEINS
+num_folds: 10
+epochs: 200
+hidden_channels: 64
+num_layers: 5
+batch_size: 128
+lr: 0.01
+weight_decay: 0.0002
+step_size: 25
+gamma: 0.5
+device: cuda
+log_dir: logs
+num_bits_list: [4, 8]
+bit_width_lambda: 0.0
+====================================================================================================
+Average Bit-Width 7.75
+Winning bit widths: [[[[None, 8, 8], [None], [None, 8, 8], [None]], [8, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 4]], [[[None, 8, 4], [None], [None, 8, 8], [None]], [None, 8]], [8, 8, 8], [None], [8, 8, 8]]
+Fold 1/10 - Accuracy: 77.55%
+Average Bit-Width 8.00
+Winning bit widths: [[[[None, 8, 8], [None], [None, 8, 8], [None]], [8, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [8, 8, 8], [None], [8, 8, 8]]
+Fold 2/10 - Accuracy: 80.61%
+Average Bit-Width 7.75
+Winning bit widths: [[[[None, 8, 8], [None], [None, 8, 8], [None]], [8, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [8, 8, 4], [None], [4, 8, 8]]
+Fold 3/10 - Accuracy: 72.45%
+Average Bit-Width 7.75
+Winning bit widths: [[[[None, 8, 8], [None], [None, 8, 8], [None]], [8, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 4], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [8, 8, 4], [None], [8, 8, 8]]
+Fold 4/10 - Accuracy: 73.47%
+Average Bit-Width 7.38
+Winning bit widths: [[[[None, 8, 8], [None], [None, 8, 8], [None]], [8, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 4, 8], [None], [None, 4, 8], [None]], [None, 8]], [[[None, 8, 4], [None], [None, 8, 8], [None]], [None, 8]], [8, 8, 4], [None], [4, 8, 8]]
+Fold 5/10 - Accuracy: 66.33%
+Average Bit-Width 7.75
+Winning bit widths: [[[[None, 8, 8], [None], [None, 8, 8], [None]], [8, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [8, 8, 4], [None], [4, 8, 8]]
+Fold 6/10 - Accuracy: 70.10%
+Average Bit-Width 7.75
+Winning bit widths: [[[[None, 8, 8], [None], [None, 8, 8], [None]], [8, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 4], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 4], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [8, 8, 8], [None], [8, 8, 8]]
+Fold 7/10 - Accuracy: 61.86%
+Average Bit-Width 7.62
+Winning bit widths: [[[[None, 8, 8], [None], [None, 8, 8], [None]], [8, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 4], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 4], [None], [None, 8, 8], [None]], [None, 8]], [8, 8, 4], [None], [8, 8, 8]]
+Fold 8/10 - Accuracy: 75.26%
+Average Bit-Width 8.00
+Winning bit widths: [[[[None, 8, 8], [None], [None, 8, 8], [None]], [8, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [8, 8, 8], [None], [8, 8, 8]]
+Fold 9/10 - Accuracy: 71.13%
+Average Bit-Width 7.75
+Winning bit widths: [[[[None, 8, 8], [None], [None, 8, 8], [None]], [8, 8]], [[[None, 8, 4], [None], [None, 8, 4], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [8, 8, 8], [None], [8, 8, 8]]
+Fold 10/10 - Accuracy: 72.16%
+====================================================================================================
+Results for 10-fold cross-validation:
+winning bit widths: [[[[None, 8, 8], [None], [None, 8, 8], [None]], [8, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [[[None, 8, 8], [None], [None, 8, 8], [None]], [None, 8]], [8, 8, 8], [None], [8, 8, 8]]
+winning bit widths std: [[[[0, 0.0, 0.0], [0], [0, 0.0, 0.0], [0]], [0.0, 0.0]], [[[0, 0.0, 1.265], [0], [0, 0.0, 1.265], [0]], [0, 0.0]], [[[0, 0.0, 1.265], [0], [0, 0.0, 0.0], [0]], [0, 0.0]], [[[0, 1.265, 1.932], [0], [0, 1.265, 0.0], [0]], [0, 1.265]], [[[0, 0.0, 1.932], [0], [0, 0.0, 0.0], [0]], [0, 0.0]], [0.0, 0.0, 2.108], [0], [1.932, 0.0, 0.0]]
+average bit width: 7.75 ± 0.17
+Accuracies: 72.09% ± 5.07%
+Bit Operations: 1686172160.00 ± 202171694.39

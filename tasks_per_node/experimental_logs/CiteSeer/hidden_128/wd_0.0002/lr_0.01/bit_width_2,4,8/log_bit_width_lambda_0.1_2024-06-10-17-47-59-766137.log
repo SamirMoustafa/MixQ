@@ -1,0 +1,80 @@
+num_runs: 10
+dataset_name: CiteSeer
+epochs: 50
+hidden_channels: 128
+lr: 0.01
+lr_quant: 0.001
+weight_decay: 0.0002
+device: cuda
+log_dir: experimental_logs
+num_bits_list: [2, 4, 8]
+bit_width_lambda: 0.1
+====================================================================================================
+[1/10]: Relaxed Model, Accuracy: 41.20%
+Expected bit operations: 5287120128.0
+====================================================================================================
+Winning Bit Width: [2, 4, 4, 2, 4, 8, 8, 2, 8]
+[1/10]: Full precision Accuracy: 70.70%
+[1/10]: Quantized Accuracy: 66.20%
+[2/10]: Relaxed Model, Accuracy: 35.50%
+Expected bit operations: 5282458880.0
+====================================================================================================
+Winning Bit Width: [2, 4, 4, 2, 2, 8, 8, 2, 8]
+[2/10]: Full precision Accuracy: 70.10%
+[2/10]: Quantized Accuracy: 67.70%
+[3/10]: Relaxed Model, Accuracy: 42.70%
+Expected bit operations: 6333755392.0
+====================================================================================================
+Winning Bit Width: [4, 4, 4, 2, 2, 8, 8, 2, 8]
+[3/10]: Full precision Accuracy: 71.00%
+[3/10]: Quantized Accuracy: 65.90%
+[4/10]: Relaxed Model, Accuracy: 37.80%
+Expected bit operations: 4235823616.0
+====================================================================================================
+Winning Bit Width: [2, 4, 2, 2, 4, 8, 8, 2, 8]
+[4/10]: Full precision Accuracy: 70.00%
+[4/10]: Quantized Accuracy: 66.60%
+[5/10]: Relaxed Model, Accuracy: 53.60%
+Expected bit operations: 5282458880.0
+====================================================================================================
+Winning Bit Width: [2, 4, 4, 2, 2, 8, 8, 2, 8]
+[5/10]: Full precision Accuracy: 70.20%
+[5/10]: Quantized Accuracy: 65.70%
+[6/10]: Relaxed Model, Accuracy: 42.70%
+Expected bit operations: 5282458880.0
+====================================================================================================
+Winning Bit Width: [2, 4, 4, 2, 2, 8, 8, 2, 8]
+[6/10]: Full precision Accuracy: 69.80%
+[6/10]: Quantized Accuracy: 67.30%
+[7/10]: Relaxed Model, Accuracy: 47.20%
+Expected bit operations: 5291332352.0
+====================================================================================================
+Winning Bit Width: [2, 4, 4, 2, 8, 8, 4, 8, 8]
+[7/10]: Full precision Accuracy: 69.80%
+[7/10]: Quantized Accuracy: 68.50%
+[8/10]: Relaxed Model, Accuracy: 51.60%
+Expected bit operations: 4225615104.0
+====================================================================================================
+Winning Bit Width: [2, 4, 2, 2, 2, 8, 4, 2, 4]
+[8/10]: Full precision Accuracy: 70.40%
+[8/10]: Quantized Accuracy: 64.40%
+[9/10]: Relaxed Model, Accuracy: 40.10%
+Expected bit operations: 5282021888.0
+====================================================================================================
+Winning Bit Width: [2, 4, 4, 2, 2, 8, 8, 2, 4]
+[9/10]: Full precision Accuracy: 70.70%
+[9/10]: Quantized Accuracy: 63.20%
+[10/10]: Relaxed Model, Accuracy: 44.50%
+Expected bit operations: 5282458880.0
+====================================================================================================
+Winning Bit Width: [2, 4, 4, 2, 2, 8, 8, 8, 8]
+[10/10]: Full precision Accuracy: 70.40%
+[10/10]: Quantized Accuracy: 69.70%
+================================================================================
+Full precision BOPs: 50678655552.00
+Full precision accuracy: 70.31 ± 0.38
+Average wining bit configuration: [[2, 4, 4, 2, None, 2], [None], [None, 8, 8, 2, None, 8]]
+Standard deviation of wining bit configuration: [[0.632, 0.0, 0.843, 0.0, 0, 1.944], [0], [0, 0.0, 1.687, 2.53, 0, 1.687]]
+Bit width: 4.49 ± 0.52
+Quantized BOPs: 5178550400.00 ± 566543858.27
+Quantized accuracy: 66.52 ± 1.81

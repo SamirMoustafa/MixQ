@@ -1,0 +1,127 @@
+runs: 10
+epochs: 500
+num_layers: 4
+dim_embedding: 150
+batch_size: 8
+lr: 0.0005
+device: cuda
+log_dir: logs
+bit_width: 2
+====================================================================================================
+Run 1/10
+Split 1/5
+Train Acc 33.33 Val Acc 30.00 Test Acc 23.33
+Split 2/5
+Train Acc 24.44 Val Acc 20.00 Test Acc 20.00
+Split 3/5
+Train Acc 25.56 Val Acc 26.67 Test Acc 30.00
+Split 4/5
+Train Acc 31.11 Val Acc 33.33 Test Acc 36.67
+Split 5/5
+Train Acc 26.67 Val Acc 23.33 Test Acc 20.00
+Run 2/10
+Split 1/5
+Train Acc 16.67 Val Acc 13.33 Test Acc 13.33
+Split 2/5
+Train Acc 27.78 Val Acc 20.00 Test Acc 20.00
+Split 3/5
+Train Acc 32.22 Val Acc 23.33 Test Acc 23.33
+Split 4/5
+Train Acc 28.89 Val Acc 16.67 Test Acc 33.33
+Split 5/5
+Train Acc 33.33 Val Acc 23.33 Test Acc 16.67
+Run 3/10
+Split 1/5
+Train Acc 27.78 Val Acc 23.33 Test Acc 30.00
+Split 2/5
+Train Acc 25.56 Val Acc 30.00 Test Acc 36.67
+Split 3/5
+Train Acc 26.67 Val Acc 43.33 Test Acc 23.33
+Split 4/5
+Train Acc 22.22 Val Acc 23.33 Test Acc 33.33
+Split 5/5
+Train Acc 30.00 Val Acc 33.33 Test Acc 26.67
+Run 4/10
+Split 1/5
+Train Acc 32.22 Val Acc 26.67 Test Acc 26.67
+Split 2/5
+Train Acc 26.67 Val Acc 13.33 Test Acc 20.00
+Split 3/5
+Train Acc 15.56 Val Acc 23.33 Test Acc 26.67
+Split 4/5
+Train Acc 26.67 Val Acc 20.00 Test Acc 30.00
+Split 5/5
+Train Acc 25.56 Val Acc 40.00 Test Acc 20.00
+Run 5/10
+Split 1/5
+Train Acc 22.22 Val Acc 23.33 Test Acc 23.33
+Split 2/5
+Train Acc 27.78 Val Acc 36.67 Test Acc 16.67
+Split 3/5
+Train Acc 24.44 Val Acc 20.00 Test Acc 30.00
+Split 4/5
+Train Acc 20.00 Val Acc 23.33 Test Acc 43.33
+Split 5/5
+Train Acc 26.67 Val Acc 26.67 Test Acc 33.33
+Run 6/10
+Split 1/5
+Train Acc 22.22 Val Acc 20.00 Test Acc 23.33
+Split 2/5
+Train Acc 28.89 Val Acc 30.00 Test Acc 30.00
+Split 3/5
+Train Acc 21.11 Val Acc 30.00 Test Acc 20.00
+Split 4/5
+Train Acc 15.56 Val Acc 13.33 Test Acc 26.67
+Split 5/5
+Train Acc 17.78 Val Acc 20.00 Test Acc 26.67
+Run 7/10
+Split 1/5
+Train Acc 24.44 Val Acc 23.33 Test Acc 10.00
+Split 2/5
+Train Acc 28.89 Val Acc 26.67 Test Acc 46.67
+Split 3/5
+Train Acc 21.11 Val Acc 20.00 Test Acc 13.33
+Split 4/5
+Train Acc 27.78 Val Acc 16.67 Test Acc 23.33
+Split 5/5
+Train Acc 30.00 Val Acc 20.00 Test Acc 13.33
+Run 8/10
+Split 1/5
+Train Acc 20.00 Val Acc 20.00 Test Acc 13.33
+Split 2/5
+Train Acc 26.67 Val Acc 26.67 Test Acc 16.67
+Split 3/5
+Train Acc 31.11 Val Acc 10.00 Test Acc 20.00
+Split 4/5
+Train Acc 32.22 Val Acc 26.67 Test Acc 26.67
+Split 5/5
+Train Acc 22.22 Val Acc 16.67 Test Acc 20.00
+Run 9/10
+Split 1/5
+Train Acc 17.78 Val Acc 16.67 Test Acc 23.33
+Split 2/5
+Train Acc 37.78 Val Acc 33.33 Test Acc 33.33
+Split 3/5
+Train Acc 27.78 Val Acc 23.33 Test Acc 30.00
+Split 4/5
+Train Acc 32.22 Val Acc 30.00 Test Acc 16.67
+Split 5/5
+Train Acc 23.33 Val Acc 30.00 Test Acc 20.00
+Run 10/10
+Split 1/5
+Train Acc 25.56 Val Acc 16.67 Test Acc 26.67
+Split 2/5
+Train Acc 30.00 Val Acc 13.33 Test Acc 20.00
+Split 3/5
+Train Acc 21.11 Val Acc 23.33 Test Acc 6.67
+Split 4/5
+Train Acc 25.56 Val Acc 13.33 Test Acc 23.33
+Split 5/5
+Train Acc 34.44 Val Acc 26.67 Test Acc 36.67
++----------------------------------------------------------------------------------+
+|                    CSL Results with 4 layers and 2 bit width                     |
++------------------+-----------+-----------+-----------------+----------+----------+
+| Train Mean ± Std | Train Min | Train Max | Test Mean ± Std | Test Min | Test Max |
++------------------+-----------+-----------+-----------------+----------+----------+
+|   26.11 ± 5.04   |   15.56   |   37.78   |   24.47 ± 8.13  |   6.67   |  46.67   |
++------------------+-----------+-----------+-----------------+----------+----------+

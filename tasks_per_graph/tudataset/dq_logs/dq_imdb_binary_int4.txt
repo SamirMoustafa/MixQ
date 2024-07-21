@@ -1,0 +1,18 @@
+Running on IMDB-BINARY
+Namespace(epochs=200, batch_size=128, num_layers=5, hidden=64, lr=0.001, wd=4e-05, noise=1.0, lr_decay_factor=0.5, lr_decay_step_size=50, path='../data/', outdir='./output/redditBINexps', DQ=True, low=0.1, change=0.1, sample_prop=None, fp32=False, int8=False, int4=True, ste_abs=False, ste_mom=False, gc_abs=False, gc_mom=False, ste_per=False, gc_per=True)
+Generating ProbabilisticHighDegreeMask: {'prob_mask_low': 0.1, 'prob_mask_change': 0.1}
+model has 50432 parameters
+Fold: 1, Loss: 0.45: 100%|█████████| 200/200 [59:41<00:00, 17.91s/it, acc=62.00]
+Fold: 2, Loss: 0.43: 100%|█████████| 200/200 [56:00<00:00, 16.80s/it, acc=62.00]
+Fold: 3, Loss: 0.44: 100%|█████████| 200/200 [51:51<00:00, 15.56s/it, acc=57.00]
+Fold: 4, Loss: 0.45: 100%|█████████| 200/200 [51:48<00:00, 15.54s/it, acc=53.00]
+Fold: 5, Loss: 0.40: 100%|█████████| 200/200 [51:33<00:00, 15.47s/it, acc=59.00]
+Fold: 6, Loss: 0.44: 100%|█████████| 200/200 [48:12<00:00, 14.46s/it, acc=55.00]
+Fold: 7, Loss: 0.46: 100%|█████████| 200/200 [48:01<00:00, 14.41s/it, acc=62.00]
+Fold: 8, Loss: 0.42: 100%|█████████| 200/200 [48:12<00:00, 14.46s/it, acc=57.00]
+Fold: 9, Loss: 0.45: 100%|█████████| 200/200 [49:13<00:00, 14.77s/it, acc=79.00]
+Fold: 10, Loss: 0.47: 100%|████████| 200/200 [47:09<00:00, 14.15s/it, acc=54.00]
+Val Loss: 0.4884, Test Accuracy: 68.600 ± 6.979, Duration: 3070.424
+Result - 68.600 ± 6.979
+
+Process finished with exit code 0

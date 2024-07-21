@@ -1,0 +1,46 @@
+num_runs: 3
+dataset_name: ogbn-arxiv
+epochs: 300
+hidden_channels: 256
+number_of_layers: 3
+lr: 0.01
+weight_decay: 0.0002
+device: cuda
+log_dir: experimental_logs
+bit_width_lambda: 1.0
+bit_width_search_space: [4, 8]
+lr_quant: 0.0001
+mask_low_probability: 0.0
+mask_high_probability: 0.1
+quant_percentile: 0.01
+quant_use_momentum: True
+quant_momentum: 0.01
+====================================================================================================
+Best bit configuration: [[[4, 8, 4, 4, None, 4], [None]], [[None, 8, 4, 4, None, 4], [None]], [[None, 8, 4, 4, None, 4], []]]
+Bit operations (BOPs): 116813326037.33
+Average bit width: 4.92
+Full precision accuracy: 71.31%
+Average bit width: 4.92
+Quantized accuracy: 68.70%
+====================================================================================================
+Best bit configuration: [[[4, 8, 4, 4, None, 4], [None]], [[None, 8, 4, 4, None, 4], [None]], [[None, 8, 4, 4, None, 4], []]]
+Bit operations (BOPs): 116813326037.33
+Average bit width: 4.92
+Full precision accuracy: 71.79%
+Average bit width: 4.92
+Quantized accuracy: 69.25%
+====================================================================================================
+Best bit configuration: [[[4, 8, 4, 4, None, 4], [None]], [[None, 8, 4, 4, None, 4], [None]], [[None, 8, 4, 4, None, 4], []]]
+Bit operations (BOPs): 116813326037.33
+Average bit width: 4.92
+Full precision accuracy: 71.90%
+Average bit width: 4.92
+Quantized accuracy: 69.54%
+====================================================================================================
+Full precision BOPs: 695645490912.00
+Full precision accuracy: 71.67 ± 0.26
+Average wining bit configuration: [[[4, 8, 4, 4, None, 4], [None]], [[None, 8, 4, 4, None, 4], [None]], [[None, 8, 4, 4, None, 4], []]]
+Standard deviation of wining bit configuration: [[[0.0, 0.0, 0.0, 0.0, 0, 0.0], [0]], [[0, 0.0, 0.0, 0.0, 0, 0.0], [0]], [[0, 0.0, 0.0, 0.0, 0, 0.0], []]]
+Bit width: 4.92 ± 0.00
+Quantized BOPs: 116813326037.33 ± 0.00
+Quantized accuracy: 69.16 ± 0.35

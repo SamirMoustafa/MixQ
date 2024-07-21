@@ -1,0 +1,18 @@
+Running on PROTEINS
+Namespace(epochs=200, batch_size=128, num_layers=5, hidden=64, lr=0.005, wd=0.0002, noise=1.0, lr_decay_factor=0.5, lr_decay_step_size=50, path='../data/', outdir='./output/redditBINexps', DQ=True, low=0.0, change=0.1, sample_prop=None, fp32=False, int8=True, int4=False, ste_abs=False, ste_mom=False, gc_abs=False, gc_mom=False, ste_per=False, gc_per=True)
+Generating ProbabilisticHighDegreeMask: {'prob_mask_low': 0.0, 'prob_mask_change': 0.1}
+model has 41920 parameters
+Fold: 1, Loss: 0.16: 100%|███████| 200/200 [1:18:50<00:00, 23.65s/it, acc=71.43]
+Fold: 2, Loss: 0.15: 100%|███████| 200/200 [1:19:21<00:00, 23.81s/it, acc=74.11]
+Fold: 3, Loss: 0.17: 100%|███████| 200/200 [1:19:36<00:00, 23.88s/it, acc=67.86]
+Fold: 4, Loss: 0.13: 100%|███████| 200/200 [1:19:06<00:00, 23.73s/it, acc=72.97]
+Fold: 5, Loss: 0.21: 100%|███████| 200/200 [1:19:28<00:00, 23.84s/it, acc=62.16]
+Fold: 6, Loss: 0.17: 100%|███████| 200/200 [1:19:11<00:00, 23.76s/it, acc=73.87]
+Fold: 7, Loss: 0.21: 100%|███████| 200/200 [1:19:00<00:00, 23.70s/it, acc=80.18]
+Fold: 8, Loss: 0.15: 100%|███████| 200/200 [1:18:05<00:00, 23.43s/it, acc=68.47]
+Fold: 9, Loss: 0.14: 100%|███████| 200/200 [1:17:30<00:00, 23.25s/it, acc=67.57]
+Fold: 10, Loss: 0.12: 100%|██████| 200/200 [1:18:46<00:00, 23.63s/it, acc=70.27]
+Val Loss: 0.4839, Test Accuracy: 72.963 ± 3.543, Duration: 4733.745
+Result - 72.963 ± 3.543
+
+Process finished with exit code 0

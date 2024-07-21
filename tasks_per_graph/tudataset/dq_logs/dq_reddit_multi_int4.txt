@@ -1,0 +1,21 @@
+Running on REDDIT-MULTI-5K
+Namespace(epochs=200, batch_size=128, num_layers=5, hidden=64, lr=0.001, wd=4e-05, noise=1.0, lr_decay_factor=0.5, lr_decay_step_size=50, path='../data/', outdir='./output/redditBINexps', DQ=True, low=0.1, change=0.1, sample_prop=None, fp32=False, int8=False, int4=True, ste_abs=False, ste_mom=False, gc_abs=False, gc_mom=False, ste_per=False, gc_per=True)
+Downloading https://www.chrsmrrs.com/graphkerneldatasets/REDDIT-MULTI-5K.zip
+Processing...
+Done!
+Generating ProbabilisticHighDegreeMask: {'prob_mask_low': 0.1, 'prob_mask_change': 0.1}
+model has 41984 parameters
+Fold: 1, Loss: 1.27: 100%|█████| 200/200 [19:31:20<00:00, 351.40s/it, acc=40.00]
+Fold: 2, Loss: 1.25: 100%|█████| 200/200 [32:07:00<00:00, 578.10s/it, acc=39.00]
+Fold: 3, Loss: 1.26: 100%|█████| 200/200 [27:45:14<00:00, 499.57s/it, acc=38.00]
+Fold: 4, Loss: 1.28: 100%|█████| 200/200 [19:01:52<00:00, 342.56s/it, acc=36.80]
+Fold: 5, Loss: 1.27: 100%|█████| 200/200 [13:49:06<00:00, 248.73s/it, acc=38.00]
+Fold: 6, Loss: 1.24: 100%|█████| 200/200 [10:13:44<00:00, 184.12s/it, acc=39.00]
+Fold: 7, Loss: 1.25: 100%|█████| 200/200 [10:10:59<00:00, 183.30s/it, acc=39.00]
+Fold: 8, Loss: 1.28: 100%|█████| 200/200 [10:19:56<00:00, 185.98s/it, acc=39.20]
+Fold: 9, Loss: 1.27: 100%|█████| 200/200 [10:24:37<00:00, 187.39s/it, acc=36.80]
+Fold: 10, Loss: 1.30: 100%|████| 200/200 [10:25:18<00:00, 187.59s/it, acc=39.28]
+Val Loss: 1.2061, Test Accuracy: 42.689 ± 2.186, Duration: 58975.082
+Result - 42.689 ± 2.186
+
+Process finished with exit code 0

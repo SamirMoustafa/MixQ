@@ -1,0 +1,128 @@
+runs: 10
+epochs: 500
+num_layers: 4
+dim_embedding: 150
+batch_size: 8
+lr: 0.0005
+device: cuda
+log_dir: logs
+num_bits_list: [1, 2, 4]
+bit_width_lambda: -0.001
+====================================================================================================
+Run 1/10
+Split 1/5
+Train Acc 100.00 Val Acc 96.67 Test Acc 93.33 Average Bit Width 4.00
+Split 2/5
+Train Acc 100.00 Val Acc 93.33 Test Acc 100.00 Average Bit Width 4.00
+Split 3/5
+Train Acc 100.00 Val Acc 100.00 Test Acc 100.00 Average Bit Width 4.00
+Split 4/5
+Train Acc 100.00 Val Acc 93.33 Test Acc 90.00 Average Bit Width 3.83
+Split 5/5
+Train Acc 98.89 Val Acc 90.00 Test Acc 93.33 Average Bit Width 3.90
+Run 2/10
+Split 1/5
+Train Acc 100.00 Val Acc 100.00 Test Acc 96.67 Average Bit Width 4.00
+Split 2/5
+Train Acc 100.00 Val Acc 86.67 Test Acc 86.67 Average Bit Width 3.79
+Split 3/5
+Train Acc 100.00 Val Acc 100.00 Test Acc 96.67 Average Bit Width 4.00
+Split 4/5
+Train Acc 100.00 Val Acc 96.67 Test Acc 93.33 Average Bit Width 4.00
+Split 5/5
+Train Acc 100.00 Val Acc 96.67 Test Acc 100.00 Average Bit Width 3.79
+Run 3/10
+Split 1/5
+Train Acc 100.00 Val Acc 96.67 Test Acc 100.00 Average Bit Width 4.00
+Split 2/5
+Train Acc 100.00 Val Acc 96.67 Test Acc 100.00 Average Bit Width 4.00
+Split 3/5
+Train Acc 100.00 Val Acc 80.00 Test Acc 96.67 Average Bit Width 4.00
+Split 4/5
+Train Acc 100.00 Val Acc 100.00 Test Acc 100.00 Average Bit Width 4.00
+Split 5/5
+Train Acc 100.00 Val Acc 83.33 Test Acc 90.00 Average Bit Width 4.00
+Run 4/10
+Split 1/5
+Train Acc 100.00 Val Acc 93.33 Test Acc 96.67 Average Bit Width 4.00
+Split 2/5
+Train Acc 100.00 Val Acc 86.67 Test Acc 100.00 Average Bit Width 3.90
+Split 3/5
+Train Acc 100.00 Val Acc 96.67 Test Acc 100.00 Average Bit Width 4.00
+Split 4/5
+Train Acc 100.00 Val Acc 93.33 Test Acc 100.00 Average Bit Width 3.90
+Split 5/5
+Train Acc 100.00 Val Acc 96.67 Test Acc 86.67 Average Bit Width 3.79
+Run 5/10
+Split 1/5
+Train Acc 100.00 Val Acc 96.67 Test Acc 100.00 Average Bit Width 3.93
+Split 2/5
+Train Acc 100.00 Val Acc 93.33 Test Acc 93.33 Average Bit Width 3.90
+Split 3/5
+Train Acc 100.00 Val Acc 100.00 Test Acc 100.00 Average Bit Width 3.93
+Split 4/5
+Train Acc 100.00 Val Acc 96.67 Test Acc 100.00 Average Bit Width 3.90
+Split 5/5
+Train Acc 100.00 Val Acc 90.00 Test Acc 90.00 Average Bit Width 4.00
+Run 6/10
+Split 1/5
+Train Acc 100.00 Val Acc 90.00 Test Acc 93.33 Average Bit Width 4.00
+Split 2/5
+Train Acc 100.00 Val Acc 96.67 Test Acc 90.00 Average Bit Width 4.00
+Split 3/5
+Train Acc 98.89 Val Acc 90.00 Test Acc 83.33 Average Bit Width 4.00
+Split 4/5
+Train Acc 100.00 Val Acc 96.67 Test Acc 93.33 Average Bit Width 4.00
+Split 5/5
+Train Acc 100.00 Val Acc 96.67 Test Acc 93.33 Average Bit Width 4.00
+Run 7/10
+Split 1/5
+Train Acc 100.00 Val Acc 100.00 Test Acc 100.00 Average Bit Width 3.90
+Split 2/5
+Train Acc 100.00 Val Acc 90.00 Test Acc 93.33 Average Bit Width 4.00
+Split 3/5
+Train Acc 100.00 Val Acc 96.67 Test Acc 96.67 Average Bit Width 4.00
+Split 4/5
+Train Acc 100.00 Val Acc 90.00 Test Acc 100.00 Average Bit Width 3.90
+Split 5/5
+Train Acc 100.00 Val Acc 96.67 Test Acc 93.33 Average Bit Width 4.00
+Run 8/10
+Split 1/5
+Train Acc 100.00 Val Acc 96.67 Test Acc 100.00 Average Bit Width 4.00
+Split 2/5
+Train Acc 100.00 Val Acc 96.67 Test Acc 86.67 Average Bit Width 4.00
+Split 3/5
+Train Acc 98.89 Val Acc 93.33 Test Acc 86.67 Average Bit Width 3.90
+Split 4/5
+Train Acc 100.00 Val Acc 93.33 Test Acc 93.33 Average Bit Width 3.90
+Split 5/5
+Train Acc 100.00 Val Acc 90.00 Test Acc 93.33 Average Bit Width 3.90
+Run 9/10
+Split 1/5
+Train Acc 100.00 Val Acc 100.00 Test Acc 100.00 Average Bit Width 3.90
+Split 2/5
+Train Acc 100.00 Val Acc 90.00 Test Acc 96.67 Average Bit Width 4.00
+Split 3/5
+Train Acc 100.00 Val Acc 96.67 Test Acc 96.67 Average Bit Width 4.00
+Split 4/5
+Train Acc 97.78 Val Acc 83.33 Test Acc 80.00 Average Bit Width 3.90
+Split 5/5
+Train Acc 100.00 Val Acc 100.00 Test Acc 96.67 Average Bit Width 4.00
+Run 10/10
+Split 1/5
+Train Acc 100.00 Val Acc 93.33 Test Acc 96.67 Average Bit Width 3.79
+Split 2/5
+Train Acc 100.00 Val Acc 100.00 Test Acc 100.00 Average Bit Width 4.00
+Split 3/5
+Train Acc 100.00 Val Acc 93.33 Test Acc 100.00 Average Bit Width 4.00
+Split 4/5
+Train Acc 100.00 Val Acc 86.67 Test Acc 86.67 Average Bit Width 4.00
+Split 5/5
+Train Acc 100.00 Val Acc 96.67 Test Acc 96.67 Average Bit Width 3.83
++------------------------------------------------------------------------------------------------------+
+|             CSL Results with 4 layers, [1, 2, 4] bit-widths, and -0.001 bit-width lambda             |
++------------------+-----------+-----------+-----------------+----------+----------+-------------------+
+| Train Mean ± Std | Train Min | Train Max | Test Mean ± Std | Test Min | Test Max | Average Bit Width |
++------------------+-----------+-----------+-----------------+----------+----------+-------------------+
+|   99.89 ± 0.40   |   97.78   |   100.00  |   95.00 ± 5.13  |  80.00   |  100.00  |    3.95 ± 0.07    |
++------------------+-----------+-----------+-----------------+----------+----------+-------------------+

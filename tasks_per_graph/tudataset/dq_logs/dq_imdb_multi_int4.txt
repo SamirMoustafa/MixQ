@@ -1,0 +1,21 @@
+Running on IMDB-MULTI
+Namespace(epochs=200, batch_size=128, num_layers=5, hidden=64, lr=0.001, wd=4e-05, noise=1.0, lr_decay_factor=0.5, lr_decay_step_size=50, path='../data/', outdir='./output/redditBINexps', DQ=True, low=0.1, change=0.1, sample_prop=None, fp32=False, int8=False, int4=True, ste_abs=False, ste_mom=False, gc_abs=False, gc_mom=False, ste_per=False, gc_per=True)
+Downloading https://www.chrsmrrs.com/graphkerneldatasets/IMDB-MULTI.zip
+Processing...
+Done!
+Generating ProbabilisticHighDegreeMask: {'prob_mask_low': 0.1, 'prob_mask_change': 0.1}
+model has 47488 parameters
+Fold: 1, Loss: 0.97: 100%|███████| 200/200 [1:09:50<00:00, 20.95s/it, acc=40.00]
+Fold: 2, Loss: 0.97: 100%|███████| 200/200 [1:03:39<00:00, 19.10s/it, acc=44.00]
+Fold: 3, Loss: 0.96: 100%|███████| 200/200 [1:00:36<00:00, 18.18s/it, acc=43.33]
+Fold: 4, Loss: 0.98: 100%|███████| 200/200 [1:00:55<00:00, 18.28s/it, acc=39.33]
+Fold: 5, Loss: 0.98: 100%|█████████| 200/200 [59:00<00:00, 17.70s/it, acc=38.00]
+Fold: 6, Loss: 0.95: 100%|█████████| 200/200 [58:03<00:00, 17.42s/it, acc=40.67]
+Fold: 7, Loss: 0.98: 100%|█████████| 200/200 [57:05<00:00, 17.13s/it, acc=43.33]
+Fold: 8, Loss: 0.98: 100%|█████████| 200/200 [57:20<00:00, 17.20s/it, acc=40.67]
+Fold: 9, Loss: 0.99: 100%|█████████| 200/200 [49:12<00:00, 14.76s/it, acc=36.67]
+Fold: 10, Loss: 0.98: 100%|████████| 200/200 [44:57<00:00, 13.49s/it, acc=38.00]
+Val Loss: 0.9868, Test Accuracy: 39.867 ± 2.284, Duration: 3484.395
+Result - 39.867 ± 2.284
+
+Process finished with exit code 0

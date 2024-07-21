@@ -1,0 +1,4 @@
+from quantization.mixed_modules.parametric.linear import MQLinear
+# from quantization.mixed_modules.parametric.convolution import MQConv2D
+from quantization.mixed_modules.parametric.graph_convolution import MQGraphConvolution
+from quantization.mixed_modules.parametric.graph_isomorphism import MQGraphIsomorphism

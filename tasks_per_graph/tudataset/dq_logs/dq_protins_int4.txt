@@ -1,0 +1,21 @@
+Running on PROTEINS
+Namespace(epochs=200, batch_size=128, num_layers=5, hidden=64, lr=0.001, wd=4e-05, noise=1.0, lr_decay_factor=0.5, lr_decay_step_size=50, path='../data/', outdir='./output/redditBINexps', DQ=True, low=0.1, change=0.1, sample_prop=None, fp32=False, int8=False, int4=True, ste_abs=False, ste_mom=False, gc_abs=False, gc_mom=False, ste_per=False, gc_per=True)
+Downloading https://www.chrsmrrs.com/graphkerneldatasets/PROTEINS.zip
+Processing...
+Done!
+Generating ProbabilisticHighDegreeMask: {'prob_mask_low': 0.1, 'prob_mask_change': 0.1}
+model has 41920 parameters
+Fold: 1, Loss: 0.24: 100%|█████████| 200/200 [57:23<00:00, 17.22s/it, acc=69.64]
+Fold: 2, Loss: 0.25: 100%|█████████| 200/200 [53:22<00:00, 16.01s/it, acc=66.96]
+Fold: 3, Loss: 0.22: 100%|█████████| 200/200 [50:11<00:00, 15.06s/it, acc=64.29]
+Fold: 4, Loss: 0.28: 100%|█████████| 200/200 [49:37<00:00, 14.89s/it, acc=77.48]
+Fold: 5, Loss: 0.23: 100%|█████████| 200/200 [49:45<00:00, 14.93s/it, acc=63.96]
+Fold: 6, Loss: 0.27: 100%|█████████| 200/200 [47:39<00:00, 14.30s/it, acc=66.67]
+Fold: 7, Loss: 0.24: 100%|█████████| 200/200 [46:56<00:00, 14.08s/it, acc=78.38]
+Fold: 8, Loss: 0.26: 100%|█████████| 200/200 [46:27<00:00, 13.94s/it, acc=71.17]
+Fold: 9, Loss: 0.26: 100%|█████████| 200/200 [45:59<00:00, 13.80s/it, acc=72.07]
+Fold: 10, Loss: 0.24: 100%|████████| 200/200 [46:52<00:00, 14.06s/it, acc=61.26]
+Val Loss: 0.4982, Test Accuracy: 73.145 ± 4.064, Duration: 2965.499
+Result - 73.145 ± 4.064
+
+Process finished with exit code 0

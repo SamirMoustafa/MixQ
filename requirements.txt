@@ -1,0 +1,10 @@
+torch-geometric
+-f https://data.pyg.org/whl/torch-2.2.0+cu121.html
+torch_operation_counter
+scipy
+pandas
+wget
+matplotlib
+plotly
+prettytable
+tqdm
