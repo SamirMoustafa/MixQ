@@ -31,11 +31,11 @@ This is the official repository for the paper "Efficient Mixed Precision Quantiz
    ```
 4. To reproduce the results, follow the instructions in the respective sections.
    * Tasks per Node
-     * Figure 2 and Figure 3 can be reproduced by running the following commands:
+     * Figure 2 and Figure 3 can be reproduced by running the following command:
      ```bash
      python tasks_per_node/gcn_planetoid_explore_all.py --dataset_name Cora
      ```
-     * Figure 6 can be reproduced by running the following commands:
+     * Figure 6 can be reproduced by running the following command:
      ```bash
      python tasks_per_node/gcn_planetoid_run_experiments.py
      ```
@@ -56,25 +56,100 @@ This is the official repository for the paper "Efficient Mixed Precision Quantiz
      python tasks_per_node/gcn_with_ogb.py
      python tasks_per_node/gcn_with_ogb_plus_degree_quant.py
      ```
-   * Tasks per Graph
-     * FP32 results for TUDataset in Table 3 can be reproduced by running the following commands:
-     ```bash
-     python examples/gin_tudataset_fp32.py
-     ```
-     * TUDataset results in Table 3 can be reproduced by running the following commands:
-     ```bash
-     python tasks_per_graph/tudataset/gin_tudataset_mixed_q_run_experiments.py
-     ```
-     * Table 6 can be reproduced by running the following commands:
-     ```bash
-     python tasks_per_graph/synthetic/synthetic_pyg_run.py
-     python tasks_per_graph/synthetic/synthetic_q_run.py --bit_width 1
-     python tasks_per_graph/synthetic/synthetic_q_run.py --bit_width 2
-     python tasks_per_graph/synthetic/synthetic_q_run.py --bit_width 4
-     python tasks_per_graph/synthetic/synthetic_mixed_q_run.py --bit_width_lambda -0.0001
-     python tasks_per_graph/synthetic/synthetic_mixed_q_run.py --bit_width_lambda 0.0
-     python tasks_per_graph/synthetic/synthetic_mixed_q_run.py --bit_width_lambda 0.0001
-     ```
+* Tasks per Graph
+  * FP32 results for TUDataset in Table 3 can be reproduced by running the following commands:
+  ```bash
+  python examples/gin_tudataset_fp32.py
+  ```
+  * TUDataset results in Table 3 can be reproduced by running the following commands:
+  ```bash
+  # IMDB-BINARY
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda -0.00000001
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda 0.0
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda 0.125
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda 0.25
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda 0.375
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda 0.5
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda 0.625
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda 0.75
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda 0.875
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda 1.0
+  ```
+  ```bash
+  # IMDB-MULTI
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-MULTI --bit_width_lambda -0.00000001
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-MULTI --bit_width_lambda 0.0
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-MULTI --bit_width_lambda 0.125
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-MULTI --bit_width_lambda 0.25
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-MULTI --bit_width_lambda 0.375
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-MULTI --bit_width_lambda 0.5
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-MULTI --bit_width_lambda 0.625
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-MULTI --bit_width_lambda 0.75
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-MULTI --bit_width_lambda 0.875
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-MULTI --bit_width_lambda 1.0
+  ```
+  ```bash
+  # PROTEINS
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda -0.00000001
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda 0.0
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda 0.125
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda 0.25
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda 0.375
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda 0.5
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda 0.625
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda 0.75
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda 0.875
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda 1.0
+  ```
+  ```bash
+  # DD
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda -0.00000001
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda 0.0
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda 0.125
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda 0.25
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda 0.375
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda 0.5
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda 0.625
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda 0.75
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda 0.875
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda 1.0
+  ```
+  ```bash
+  # REDDIT-BINARY
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda -0.00000001
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda 0.0
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda 0.125
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda 0.25
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda 0.375
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda 0.5
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda 0.625
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda 0.75
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda 0.875
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda 1.0
+  ```
+  ```bash
+  # REDDIT-MULTI-5K
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-MULTI-5K --bit_width_lambda -0.00000001
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-MULTI-5K --bit_width_lambda 0.0
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-MULTI-5K --bit_width_lambda 0.125
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-MULTI-5K --bit_width_lambda 0.25
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-MULTI-5K --bit_width_lambda 0.375
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-MULTI-5K --bit_width_lambda 0.5
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-MULTI-5K --bit_width_lambda 0.625
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-MULTI-5K --bit_width_lambda 0.75
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-MULTI-5K --bit_width_lambda 0.875
+  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-MULTI-5K --bit_width_lambda 1.0
+  ```
+  * Table 6 can be reproduced by running the following commands:
+  ```bash
+  python tasks_per_graph/synthetic/synthetic_pyg_run.py
+  python tasks_per_graph/synthetic/synthetic_q_run.py --bit_width 1
+  python tasks_per_graph/synthetic/synthetic_q_run.py --bit_width 2
+  python tasks_per_graph/synthetic/synthetic_q_run.py --bit_width 4
+  python tasks_per_graph/synthetic/synthetic_mixed_q_run.py --bit_width_lambda -0.0001
+  python tasks_per_graph/synthetic/synthetic_mixed_q_run.py --bit_width_lambda 0.0
+  python tasks_per_graph/synthetic/synthetic_mixed_q_run.py --bit_width_lambda 0.0001
+  ```
      
 
 ## Logs Directories of the Experiments
