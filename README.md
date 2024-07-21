@@ -1,6 +1,5 @@
 <div align="center">
-<img src="./assets/MixQ-logo.png" width="150">
-
+<img src="https://i.imgur.com/BOj6R2A_d.webp?maxwidth=760&fidelity=grand" width="200">
 <h1> Mixed Precision Quantization in Graph Neural Networks (MixQ-GNN)
 
 ![python-3.9](https://img.shields.io/badge/python-3.11.5-blue)
