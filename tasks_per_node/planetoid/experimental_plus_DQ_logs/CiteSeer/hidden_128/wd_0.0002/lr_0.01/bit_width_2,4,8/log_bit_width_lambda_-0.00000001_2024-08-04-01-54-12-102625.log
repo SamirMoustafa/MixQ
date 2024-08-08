@@ -1,0 +1,94 @@
+num_runs: 10
+dataset_name: CiteSeer
+epochs: 50
+hidden_channels: 128
+number_of_layers: 2
+lr: 0.01
+lr_quant: 0.001
+weight_decay: 0.0002
+device: cuda
+log_dir: experimental_plus_DQ_logs
+num_bits_list: [2, 4, 8]
+bit_width_lambda: -1e-08
+mask_low_probability: 0.0
+mask_high_probability: 0.1
+quant_percentile: 0.01
+quant_use_momentum: True
+quant_momentum: 0.01
+[1/10]: Relaxed Model, Accuracy: 48.40%
+Expected bit operations: 12655518208.0
+Average bit width: 6.888888888888889
+Winning Bit Width: [8, 8, 8, 2, 8, 8, 8, 4, 8]
+[1/10]: Full precision Accuracy: 70.50%
+[1/10]: Quantized Accuracy: 69.20%
+====================================================================================================
+[2/10]: Relaxed Model, Accuracy: 55.40%
+Expected bit operations: 12655518208.0
+Average bit width: 6.888888888888889
+Winning Bit Width: [8, 8, 8, 2, 8, 8, 8, 4, 8]
+[2/10]: Full precision Accuracy: 69.90%
+[2/10]: Quantized Accuracy: 69.30%
+====================================================================================================
+[3/10]: Relaxed Model, Accuracy: 54.80%
+Expected bit operations: 12655518208.0
+Average bit width: 6.888888888888889
+Winning Bit Width: [8, 8, 8, 2, 8, 8, 8, 4, 8]
+[3/10]: Full precision Accuracy: 69.20%
+[3/10]: Quantized Accuracy: 69.30%
+====================================================================================================
+[4/10]: Relaxed Model, Accuracy: 43.40%
+Expected bit operations: 12655518208.0
+Average bit width: 6.888888888888889
+Winning Bit Width: [8, 8, 8, 2, 8, 8, 8, 4, 8]
+[4/10]: Full precision Accuracy: 68.50%
+[4/10]: Quantized Accuracy: 69.40%
+====================================================================================================
+[5/10]: Relaxed Model, Accuracy: 45.90%
+Expected bit operations: 12655518208.0
+Average bit width: 6.888888888888889
+Winning Bit Width: [8, 8, 8, 2, 8, 8, 8, 4, 8]
+[5/10]: Full precision Accuracy: 70.80%
+[5/10]: Quantized Accuracy: 69.40%
+====================================================================================================
+[6/10]: Relaxed Model, Accuracy: 41.70%
+Expected bit operations: 10552925184.0
+Average bit width: 6.444444444444445
+Winning Bit Width: [8, 8, 4, 2, 8, 8, 8, 4, 8]
+[6/10]: Full precision Accuracy: 70.10%
+[6/10]: Quantized Accuracy: 69.30%
+====================================================================================================
+[7/10]: Relaxed Model, Accuracy: 52.80%
+Expected bit operations: 12655518208.0
+Average bit width: 7.333333333333333
+Winning Bit Width: [8, 8, 8, 2, 8, 8, 8, 8, 8]
+[7/10]: Full precision Accuracy: 68.90%
+[7/10]: Quantized Accuracy: 69.00%
+====================================================================================================
+[8/10]: Relaxed Model, Accuracy: 52.60%
+Expected bit operations: 10552925184.0
+Average bit width: 6.444444444444445
+Winning Bit Width: [8, 8, 4, 2, 8, 8, 8, 4, 8]
+[8/10]: Full precision Accuracy: 69.90%
+[8/10]: Quantized Accuracy: 70.10%
+====================================================================================================
+[9/10]: Relaxed Model, Accuracy: 55.50%
+Expected bit operations: 12655518208.0
+Average bit width: 6.888888888888889
+Winning Bit Width: [8, 8, 8, 2, 8, 8, 8, 4, 8]
+[9/10]: Full precision Accuracy: 69.30%
+[9/10]: Quantized Accuracy: 68.90%
+====================================================================================================
+[10/10]: Relaxed Model, Accuracy: 57.00%
+Expected bit operations: 12655518208.0
+Average bit width: 6.888888888888889
+Winning Bit Width: [8, 8, 8, 2, 8, 8, 8, 4, 8]
+[10/10]: Full precision Accuracy: 69.80%
+[10/10]: Quantized Accuracy: 69.30%
+====================================================================================================
+Full precision BOPs: 50692282944.00
+Full precision accuracy: 69.69 ± 0.68
+Average wining bit configuration: [[[8, 8, 8, 2, None, 8], [None]], [[None, 8, 8, 4, None, 8], []]]
+Standard deviation of wining bit configuration: [[[0.0, 0.0, 1.687, 0.0, 0, 0.0], [0]], [[0, 0.0, 0.0, 1.265, 0, 0.0], []]]
+Bit width: 6.84 ± 0.24
+Quantized BOPs: 12234999603.20 ± 841037209.60
+Quantized accuracy: 69.32 ± 0.30

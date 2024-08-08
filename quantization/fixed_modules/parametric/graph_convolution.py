@@ -43,6 +43,7 @@ class QGraphConvolution(QParametricModule):
         super().reset_parameters()
         self.lin.reset_parameters()
         self.mp.reset_parameters()
+        self.e.reset_parameters()
         self.__cache__ = [None, None]
 
     def freeze(self, qi=None, qo=None):

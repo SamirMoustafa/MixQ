@@ -1,0 +1,46 @@
+num_runs: 10
+dataset_name: ogbn-arxiv
+epochs: 500
+hidden_channels: 256
+number_of_layers: 3
+lr: 0.01
+lr_quant: 0.0001
+weight_decay: 0.0002
+device: cuda
+log_dir: experimental_logs
+bit_width_lambda: -1e-08
+bit_width_search_space: [4, 8]
+====================================================================================================
+Best epoch: 86
+Best bit configuration: [[[8, 8, 8, 8, None, 8], [None]], [[None, 8, 8, 8, None, 8], [None]], [[None, 8, 8, 8, None, 8], []]]
+Bit operations (BOPs): 167500694272.00
+Average bit width: 8.00
+Full precision accuracy: 70.60%
+Average bit width: 8.00
+Quantized accuracy: 70.60%
+Average bit width: 8.00
+Quantized accuracy: 70.64%
+Average bit width: 8.00
+Quantized accuracy: 70.60%
+Average bit width: 8.00
+Quantized accuracy: 70.65%
+Average bit width: 8.00
+Quantized accuracy: 70.67%
+Average bit width: 8.00
+Quantized accuracy: 70.54%
+Average bit width: 8.00
+Quantized accuracy: 70.59%
+Average bit width: 8.00
+Quantized accuracy: 70.59%
+Average bit width: 8.00
+Quantized accuracy: 70.60%
+Average bit width: 8.00
+Quantized accuracy: 70.63%
+====================================================================================================
+Full precision BOPs: 692870975200.00
+Full precision accuracy: 70.60 ± 0.00
+Average wining bit configuration: [[[8, 8, 8, 8, None, 8], [None]], [[None, 8, 8, 8, None, 8], [None]], [[None, 8, 8, 8, None, 8], []]]
+Standard deviation of wining bit configuration: [[[0, 0, 0, 0, 0, 0], [0]], [[0, 0, 0, 0, 0, 0], [0]], [[0, 0, 0, 0, 0, 0], []]]
+Bit width: 8.00 ± 0.00
+Quantized BOPs: 167500694272.00 ± 0.00
+Quantized accuracy: 70.61 ± 0.04

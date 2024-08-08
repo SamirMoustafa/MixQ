@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from scipy.stats import linregress
+from scipy.stats import linregress, pearsonr
 import matplotlib
 
 matplotlib.rcParams["mathtext.fontset"] = "stix"
@@ -36,6 +36,10 @@ for hardware, group_data in combined_data.groupby('Hardware'):
     x = np.linspace(group_data['Bit Operations'].min(), group_data['Bit Operations'].max(), 100)
     y = slope * x + intercept
     plt.plot(x, y, '--', color=colors[hardware])
+    # Compute correlation coefficient
+    print(f"Hardware: {hardware} - "
+          f"Correlation Coefficient: {pearsonr(group_data['Bit Operations'], group_data['Execution Time (s)'])[0]:.3f} - "
+          f"P-value: {pearsonr(group_data['Bit Operations'], group_data['Execution Time (s)'])[1]:.1e}")
 
 plt.xscale('log')
 plt.yscale('log')
