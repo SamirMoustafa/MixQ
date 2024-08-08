@@ -8,3 +8,4 @@ plotly
 prettytable
 tqdm
 tensorboard
+torchmetrics
