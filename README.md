@@ -17,7 +17,7 @@ This is the official repository for the paper "Efficient Mixed Precision Quantiz
    docker build -t mixq .
    docker run --gpus all --rm -ti --ipc=host --name mixq_instance mixq /bin/bash
    ```
-   * Install the required dependencies manually through anaconda.
+   * Or, install the required dependencies manually through anaconda.
    ```bash
    conda create -n mixq python=3.11.5
    conda activate mixq
@@ -25,17 +25,17 @@ This is the official repository for the paper "Efficient Mixed Precision Quantiz
    # Install torch_scatter version 2.1.2 that is compatible with PyTorch
    pip install -r requirements.txt
    ```
-3. Verify the installation by running the following command:
+3. (Optional) Verify the installation by running the following command:
    ```bash
    python -m unittest discover ./test
    ```
-4. Verify `Quantized Message Passing Schema` theorem only for GCN and GIN example by running the following commands:
+4. (Optional) Verify `Quantized Message Passing Schema` theorem only for GCN and GIN examples by running the following commands:
    ```bash
    cd test/
    python -m unittest test_graph_conv_module.py
    python -m unittest test_graph_iso_module.py 
    ```
-5. To reproduce the results, follow the instructions in the respective sections.
+## Reproduce Results
    * Tasks per Node
      * Figure 1 can be reproduced by running the following command:
      ```bash
