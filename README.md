@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://i.imgur.com/BOj6R2A_d.webp?maxwidth=760&fidelity=grand" width="200">
+<img src="https://i.imgur.com/arMZl3N_d.webp?maxwidth=760&fidelity=grand" width="200">
 <h1> Mixed Precision Quantization in Graph Neural Networks (MixQ-GNN)
 
 ![python-3.9](https://img.shields.io/badge/python-3.11.5-blue)
@@ -29,7 +29,13 @@ This is the official repository for the paper "Efficient Mixed Precision Quantiz
    ```bash
    python -m unittest discover ./test
    ```
-4. To reproduce the results, follow the instructions in the respective sections.
+4. Verify `Quantized Message Passing Schema` theorem only for GCN and GIN example by running the following commands:
+   ```bash
+   cd test/
+   python -m unittest test_graph_conv_module.py
+   python -m unittest test_graph_iso_module.py 
+   ```
+5. To reproduce the results, follow the instructions in the respective sections.
    * Tasks per Node
      * Figure 1 can be reproduced by running the following command:
      ```bash
