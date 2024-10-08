@@ -1,0 +1,37 @@
+num_runs: 3
+epochs: 20
+hidden_channels: 256
+lr: 0.001
+lr_quant: 0.01
+weight_decay: 0.0002
+batch_size: 512
+device: cuda
+log_dir: experimental_logs
+num_bits_list: [4, 8]
+bit_width_lambda: 0.1
+====================================================================================================
+[1/3]: Relaxed Model, Accuracy: 70.50%
+====================================================================================================
+Winning Bit Width: [4, 4, 8, 4, 8, 4, 4, 8, 8, 4, 8]
+Expected bit operations: 111993289721.33334
+[1/3]: Full precision Accuracy: 89.29%
+[1/3]: Quantized Accuracy: 84.58%
+[2/3]: Relaxed Model, Accuracy: 77.81%
+====================================================================================================
+Winning Bit Width: [4, 4, 8, 4, 8, 4, 4, 8, 8, 4, 8]
+Expected bit operations: 111993289721.33334
+[2/3]: Full precision Accuracy: 88.99%
+[2/3]: Quantized Accuracy: 87.01%
+[3/3]: Relaxed Model, Accuracy: 80.12%
+====================================================================================================
+Winning Bit Width: [4, 4, 8, 4, 8, 4, 4, 4, 8, 4, 8]
+Expected bit operations: 109821381397.40352
+[3/3]: Full precision Accuracy: 87.48%
+[3/3]: Quantized Accuracy: 86.45%
+================================================================================
+Full precision accuracy: 88.58 ± 0.79
+Average wining bit configuration: [[4, 4, None, 8, 4, None, 8, 4], [None], [None, 4, None, 8, 8, None, 4, 8]]
+Standard deviation of wining bit configuration: [[0.0, 0.0, 0, 0.0, 0.0, 0, 0.0, 0.0], [0], [0, 0.0, 0, 2.309, 0.0, 0, 0.0, 0.0]]
+Bit width: 5.70 ± 0.17
+Quantized BOPs: 111269320280.02 ± 1023847402.64
+Quantized accuracy: 86.01 ± 1.04

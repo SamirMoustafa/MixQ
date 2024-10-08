@@ -1,0 +1,38 @@
+dataset_name: CiteSeer
+num_runs: 3
+epochs: 100
+hidden_channels: 128
+lr: 0.001
+lr_quant: 0.01
+weight_decay: 0.0002
+batch_size: 512
+device: cuda
+log_dir: experimental_logs
+num_bits_list: [2, 4, 8]
+bit_width_lambda: -1e-08
+====================================================================================================
+[1/3]: Relaxed Model, Accuracy: 67.40%
+====================================================================================================
+Winning Bit Width: [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]
+Expected bit operations: 4869214189.714286
+[1/3]: Full precision Accuracy: 65.80%
+[1/3]: Quantized Accuracy: 65.20%
+[2/3]: Relaxed Model, Accuracy: 68.50%
+====================================================================================================
+Winning Bit Width: [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]
+Expected bit operations: 4869214189.714286
+[2/3]: Full precision Accuracy: 67.20%
+[2/3]: Quantized Accuracy: 65.20%
+[3/3]: Relaxed Model, Accuracy: 66.70%
+====================================================================================================
+Winning Bit Width: [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]
+Expected bit operations: 4869214189.714286
+[3/3]: Full precision Accuracy: 64.90%
+[3/3]: Quantized Accuracy: 65.50%
+================================================================================
+Full precision accuracy: 65.97 ± 0.95
+Average wining bit configuration: [[8, 8, None, 8, 8, None, 8, 8], [None], [None, 8, None, 8, 8, None, 8, 8]]
+Standard deviation of wining bit configuration: [[0.0, 0.0, 0, 0.0, 0.0, 0, 0.0, 0.0], [0], [0, 0.0, 0, 0.0, 0.0, 0, 0.0, 0.0]]
+Bit width: 8.00 ± 0.00
+Quantized BOPs: 4869214189.71 ± 0.00
+Quantized accuracy: 65.30 ± 0.14

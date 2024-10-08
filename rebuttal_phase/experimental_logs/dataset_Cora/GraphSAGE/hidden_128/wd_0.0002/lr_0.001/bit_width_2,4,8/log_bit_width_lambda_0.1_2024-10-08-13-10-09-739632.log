@@ -1,0 +1,38 @@
+dataset_name: Cora
+num_runs: 3
+epochs: 100
+hidden_channels: 128
+lr: 0.001
+lr_quant: 0.01
+weight_decay: 0.0002
+batch_size: 512
+device: cuda
+log_dir: experimental_logs
+num_bits_list: [2, 4, 8]
+bit_width_lambda: 0.1
+====================================================================================================
+[1/3]: Relaxed Model, Accuracy: 78.00%
+====================================================================================================
+Winning Bit Width: [2, 2, 8, 8, 8, 8, 8, 8, 8, 8, 8]
+Expected bit operations: 1937114356.0
+[1/3]: Full precision Accuracy: 77.80%
+[1/3]: Quantized Accuracy: 78.30%
+[2/3]: Relaxed Model, Accuracy: 78.80%
+====================================================================================================
+Winning Bit Width: [2, 2, 8, 8, 8, 8, 8, 8, 8, 8, 8]
+Expected bit operations: 1937114356.0
+[2/3]: Full precision Accuracy: 77.80%
+[2/3]: Quantized Accuracy: 78.30%
+[3/3]: Relaxed Model, Accuracy: 78.60%
+====================================================================================================
+Winning Bit Width: [2, 2, 8, 8, 8, 8, 8, 8, 8, 8, 8]
+Expected bit operations: 1937114356.0
+[3/3]: Full precision Accuracy: 75.90%
+[3/3]: Quantized Accuracy: 77.70%
+================================================================================
+Full precision accuracy: 77.17 ± 0.90
+Average wining bit configuration: [[2, 2, None, 8, 8, None, 8, 8], [None], [None, 8, None, 8, 8, None, 8, 8]]
+Standard deviation of wining bit configuration: [[0.0, 0.0, 0, 0.0, 0.0, 0, 0.0, 0.0], [0], [0, 0.0, 0, 0.0, 0.0, 0, 0.0, 0.0]]
+Bit width: 6.91 ± 0.00
+Quantized BOPs: 1937114356.00 ± 0.00
+Quantized accuracy: 78.10 ± 0.28

@@ -1,0 +1,38 @@
+dataset_name: PubMed
+num_runs: 3
+epochs: 100
+hidden_channels: 128
+lr: 0.001
+lr_quant: 0.01
+weight_decay: 0.0002
+batch_size: 512
+device: cuda
+log_dir: experimental_logs
+num_bits_list: [2, 4, 8]
+bit_width_lambda: 1.0
+====================================================================================================
+[1/3]: Relaxed Model, Accuracy: 80.20%
+====================================================================================================
+Winning Bit Width: [2, 2, 4, 4, 8, 4, 4, 8, 8, 8, 8]
+Expected bit operations: 771808369.2307693
+[1/3]: Full precision Accuracy: 77.20%
+[1/3]: Quantized Accuracy: 78.00%
+[2/3]: Relaxed Model, Accuracy: 79.70%
+====================================================================================================
+Winning Bit Width: [2, 2, 4, 4, 8, 4, 4, 8, 8, 8, 8]
+Expected bit operations: 771808369.2307693
+[2/3]: Full precision Accuracy: 78.10%
+[2/3]: Quantized Accuracy: 77.80%
+[3/3]: Relaxed Model, Accuracy: 79.20%
+====================================================================================================
+Winning Bit Width: [2, 2, 4, 4, 8, 4, 4, 8, 8, 8, 8]
+Expected bit operations: 771808369.2307693
+[3/3]: Full precision Accuracy: 77.80%
+[3/3]: Quantized Accuracy: 78.10%
+================================================================================
+Full precision accuracy: 77.70 ± 0.37
+Average wining bit configuration: [[2, 2, None, 4, 4, None, 8, 4], [None], [None, 4, None, 8, 8, None, 8, 8]]
+Standard deviation of wining bit configuration: [[0.0, 0.0, 0, 0.0, 0.0, 0, 0.0, 0.0], [0], [0, 0.0, 0, 0.0, 0.0, 0, 0.0, 0.0]]
+Bit width: 5.45 ± 0.00
+Quantized BOPs: 771808369.23 ± 0.00
+Quantized accuracy: 77.97 ± 0.12
