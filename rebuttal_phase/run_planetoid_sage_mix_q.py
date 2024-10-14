@@ -17,8 +17,7 @@ from torch_geometric.datasets import Planetoid
 from torch_geometric.loader import NeighborLoader
 
 
-from fixed_graph_sage import QGraphSAGE
-from mixed_graph_sage import MQGraphSAGE
+from rebuttal_phase.SAGEConv import QGraphSAGE, MQGraphSAGE
 from quantization.fixed_modules.non_parametric import QReLU
 from quantization.mixed_modules.non_parametric import MQReLU
 from training.logger import setup_logger
@@ -245,7 +244,7 @@ if __name__ == '__main__':
     parser.add_argument("--log_dir", type=str, default="experimental_logs")
 
     parser.add_argument("--num_bits_list", type=int, nargs="+", default=[2, 4, 8])
-    parser.add_argument("--bit_width_lambda", type=float, default=-1e-8)
+    parser.add_argument("--bit_width_lambda", type=float, default=1.0)
 
     args = parser.parse_args()
     arguments = vars(args)
@@ -267,7 +266,7 @@ if __name__ == '__main__':
     logger.info("=" * 100)
 
     device = torch_device(args.device)
-    dataset = Planetoid("../../data/", args.dataset_name)
+    dataset = Planetoid("../data/", args.dataset_name)
     num_nodes = dataset[0].num_nodes
     num_edges = dataset[0].num_edges
 

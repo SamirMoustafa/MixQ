@@ -1,0 +1,32 @@
+dataset_name: ogbn-products
+num_runs: 2
+epochs: 50
+hidden_channels: 256
+lr: 0.001
+lr_quant: 0.01
+weight_decay: 0.0002
+batch_size: 65536
+device: cuda
+log_dir: experimental_logs
+num_bits_list: [2, 4, 8]
+bit_width_lambda: -1e-08
+====================================================================================================
+[1/2]: Relaxed Model, Accuracy: 26.02%
+====================================================================================================
+Winning Bit Width: [8, 8, 8, 8, 8, 8, 8, 2, 8, 2, 8]
+Expected bit operations: 383778196581.0526
+[1/2]: Full precision Accuracy: 65.30%
+[1/2]: Quantized Accuracy: 65.37%
+[2/2]: Relaxed Model, Accuracy: 26.91%
+====================================================================================================
+Winning Bit Width: [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]
+Expected bit operations: 465455626947.3684
+[2/2]: Full precision Accuracy: 67.90%
+[2/2]: Quantized Accuracy: 67.34%
+================================================================================
+Full precision accuracy: 66.60 ± 1.30
+Average wining bit configuration: [[8, 8, None, 8, 8, None, 8, 8], [None], [None, 8, None, 8, 8, None, 8, 8]]
+Standard deviation of wining bit configuration: [[0.0, 0.0, 0, 0.0, 0.0, 0, 0.0, 0.0], [0], [0, 0.0, 0, 4.243, 0.0, 0, 4.243, 0.0]]
+Bit width: 7.45 ± 0.55
+Quantized BOPs: 424616911764.21 ± 40838715183.16
+Quantized accuracy: 66.36 ± 0.98

@@ -1,4 +1,3 @@
-# Maximize GPU usage is 12032 MiB
 import copy
 import argparse
 from datetime import datetime
@@ -15,8 +14,8 @@ from torch import no_grad, cat, tensor
 from torch import cuda, device as torch_device
 from torch.nn.functional import dropout, cross_entropy
 from torchmetrics import Accuracy
-from torch_geometric.datasets import Reddit
 from torch_geometric.loader import NeighborLoader
+from ogb.nodeproppred import PygNodePropPredDataset
 
 
 from rebuttal_phase.SAGEConv import QGraphSAGE, MQGraphSAGE
@@ -166,7 +165,7 @@ def train(epoch, model, train_loader, optimizer, bit_width_lambda=None):
         optimizer.zero_grad()
         y = batch.y[:batch.batch_size]
         y_hat = model(batch.x, batch.edge_index.to(device))[:batch.batch_size]
-        classification_loss = cross_entropy(y_hat, y)
+        classification_loss = cross_entropy(y_hat, y.view(-1))
         if bit_width_lambda is not None:
             bit_width_loss = bit_width_lambda * model.calculate_loss(batch.x, batch.edge_index.to(device))
         else:
@@ -188,7 +187,7 @@ def evaluate(model, data, subgraph_loader):
     accuracy = Accuracy(num_classes=data.y.max().item() + 1, task="multiclass")
     y_hat = model.inference(data.x, subgraph_loader).argmax(dim=-1)
     for mask in (data.train_mask, data.val_mask, data.test_mask):
-        accuracies += [accuracy(y_hat[mask], data.y[mask].cpu()).item() * 100]
+        accuracies += [accuracy(y_hat[mask], data.y[mask].cpu().view(-1)).item() * 100]
     return accuracies
 
 
@@ -217,23 +216,24 @@ def training_loop(epochs, model, optimizer, data, train_loader, subgraph_loader,
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--num_runs", type=int, default=3)
-    parser.add_argument('--epochs', type=int, default=20)
+    parser.add_argument("--dataset_name", type=str, default="ogbn-products")
+    parser.add_argument("--num_runs", type=int, default=2)
+    parser.add_argument('--epochs', type=int, default=50)
     parser.add_argument('--hidden_channels', type=int, default=256)
     parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument("--lr_quant", type=float, default=0.01)
     parser.add_argument("--weight_decay", type=float, default=2e-4)
-    parser.add_argument('--batch_size', type=int, default=512)
+    parser.add_argument('--batch_size', type=int, default=65536)
     parser.add_argument("--device", type=str, default="cuda" if cuda.is_available() else "cpu")
     parser.add_argument("--log_dir", type=str, default="experimental_logs")
 
-    parser.add_argument("--num_bits_list", type=int, nargs="+", default=[4, 8])
+    parser.add_argument("--num_bits_list", type=int, nargs="+", default=[2, 4, 8])
     parser.add_argument("--bit_width_lambda", type=float, default=1)
 
     args = parser.parse_args()
     arguments = vars(args)
 
-    log_dir_name = (f"dataset_Reddit/"
+    log_dir_name = (f"dataset_{args.dataset_name}/"
                     f"GraphSAGE/"
                     f"hidden_{args.hidden_channels}/"
                     f"wd_{format_fraction(args.weight_decay)}/"
@@ -250,12 +250,14 @@ if __name__ == '__main__':
     logger.info("=" * 100)
 
     device = torch_device(args.device)
-    dataset = Reddit("../data/reddit/")
-    num_nodes = dataset[0].num_nodes
-    num_edges = dataset[0].num_edges
+    dataset = PygNodePropPredDataset(root="../data/", name=args.dataset_name)
+    split_idx = dataset.get_idx_split()
+    split_idx = {"train_mask": split_idx["train"], "val_mask": split_idx["valid"], "test_mask": split_idx["test"]}
+    data = dataset[0]
+    data.__dict__.update(split_idx)
+    data = data.to(device)
 
-    data = dataset[0].to(device, "x", "y")
-    kwargs = {"batch_size": args.batch_size, "num_workers": 6, "persistent_workers": True}
+    kwargs = {"batch_size": args.batch_size, "num_workers": 1, "persistent_workers": True}
     train_loader = NeighborLoader(data, input_nodes=data.train_mask, num_neighbors=[25, 10], shuffle=True, **kwargs)
     subgraph_loader = NeighborLoader(copy.copy(data), input_nodes=None, num_neighbors=[-1], shuffle=False, **kwargs)
 

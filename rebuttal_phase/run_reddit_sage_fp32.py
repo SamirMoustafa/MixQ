@@ -1,12 +1,20 @@
 # This script is based on this implementation of GraphSAGE on Reddit dataset:
 # https://github.com/atanuroy911/graphsage-reddit/
+import copy
+import argparse
 
+import numpy as np
+from tqdm import tqdm
+from torch import cuda, device as torch_device
+from torch.optim import NAdam
 from torch import no_grad, cat
 from torch.nn import Module, ModuleList
 from torch.nn.functional import dropout, cross_entropy
-from tqdm import tqdm
+from torchmetrics import Accuracy
+from torch_geometric.datasets import Reddit
+from torch_geometric.loader import NeighborLoader
 
-from fixed_graph_sage import QGraphSAGE
+from rebuttal_phase.SAGEConv import QGraphSAGE
 
 
 class SAGE(Module):
@@ -98,23 +106,15 @@ def train(epoch, model, train_loader, optimizer):
 @no_grad()
 def evaluate(model, data, subgraph_loader):
     model.eval()
+    accuracies = []
+    accuracy = Accuracy(num_classes=data.y.max().item() + 1, task="multiclass")
     y_hat = model.inference(data.x, subgraph_loader).argmax(dim=-1)
-    pred = y_hat.to(data.y.device)
-    accuracies = [(pred[mask] == data.y[mask]).float().mean().item() * 100
-                  for mask in (data.train_mask, data.val_mask, data.test_mask)]
+    for mask in (data.train_mask, data.val_mask, data.test_mask):
+        accuracies += [accuracy(y_hat[mask], data.y[mask].cpu()).item() * 100]
     return accuracies
 
 
 if __name__ == '__main__':
-    import copy
-    import argparse
-
-    import numpy as np
-    from torch import cuda, device as torch_device
-    from torch.optim import NAdam
-    from torch_geometric.datasets import Reddit
-    from torch_geometric.loader import NeighborLoader
-
     parser = argparse.ArgumentParser()
     parser.add_argument("--num_runs", type=int, default=3)
     parser.add_argument('--epochs', type=int, default=20)
@@ -127,7 +127,7 @@ if __name__ == '__main__':
 
     device = torch_device("cuda" if cuda.is_available() else "cpu")
 
-    dataset = Reddit("../../data/reddit/")
+    dataset = Reddit("../data/reddit/")
     num_nodes = dataset[0].num_nodes
     num_edges = dataset[0].num_edges
 

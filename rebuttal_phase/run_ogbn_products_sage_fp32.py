@@ -1,10 +1,19 @@
-# This script is based on this implementation of GraphSAGE on Reddit dataset:
-# https://github.com/atanuroy911/graphsage-reddit/
+import copy
+import argparse
 
+import numpy as np
+from tqdm import tqdm
+
+from torch import cuda, device as torch_device
+from torch.optim import NAdam
 from torch import no_grad, cat
 from torch.nn import Module, ModuleList
 from torch.nn.functional import dropout, cross_entropy
-from tqdm import tqdm
+from torchmetrics import Accuracy
+from torch_geometric.loader import NeighborLoader
+
+from ogb.nodeproppred import PygNodePropPredDataset
+
 
 from rebuttal_phase.SAGEConv import QGraphSAGE
 
@@ -80,7 +89,7 @@ def train(epoch, model, train_loader, optimizer):
     total_loss = total_correct = total_examples = 0
     for batch in train_loader:
         optimizer.zero_grad()
-        y = batch.y[:batch.batch_size]
+        y = batch.y[:batch.batch_size].view(-1)
         y_hat = model(batch.x, batch.edge_index.to(device))[:batch.batch_size]
         loss = cross_entropy(y_hat, y)
         loss.backward()
@@ -98,43 +107,35 @@ def train(epoch, model, train_loader, optimizer):
 @no_grad()
 def evaluate(model, data, subgraph_loader):
     model.eval()
-    y_hat = model.inference(data.x, subgraph_loader).argmax(dim=-1)
-    y = data.y.to(y_hat.device)
     accuracies = []
-    for mask in [data.train_mask, data.val_mask, data.test_mask]:
-        accuracy = int((y_hat[mask] == y[mask]).sum()) / int(mask.sum()) * 100
-        accuracies += [accuracy]
+    accuracy = Accuracy(num_classes=data.y.max().item() + 1, task="multiclass")
+    y_hat = model.inference(data.x, subgraph_loader).argmax(dim=-1)
+    for mask in (data.train_mask, data.val_mask, data.test_mask):
+        accuracies += [accuracy(y_hat[mask], data.y[mask].cpu().view(-1)).item() * 100]
     return accuracies
 
 
 if __name__ == '__main__':
-    import copy
-    import argparse
-
-    import numpy as np
-    from torch import cuda, device as torch_device
-    from torch.optim import NAdam
-    from torch_geometric.datasets import Planetoid
-    from torch_geometric.loader import NeighborLoader
-
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dataset_name", type=str, default="Cora")
+    parser.add_argument("--dataset_name", type=str, default="ogbn-products")
     parser.add_argument("--num_runs", type=int, default=3)
-    parser.add_argument('--epochs', type=int, default=100)
+    parser.add_argument('--epochs', type=int, default=20)
     parser.add_argument('--lr', type=float, default=0.0001)
-    parser.add_argument('--hidden_channels', type=int, default=128)
-    parser.add_argument('--batch_size', type=int, default=512)
+    parser.add_argument('--hidden_channels', type=int, default=256)
+    parser.add_argument('--batch_size', type=int, default=32768)
     args = parser.parse_args()
     arguments = vars(args)
     [print(f"{k}: {v}") for k, v in arguments.items()]
 
     device = torch_device("cuda" if cuda.is_available() else "cpu")
 
-    dataset = Planetoid("../data/reddit/", args.dataset_name)
-    num_nodes = dataset[0].num_nodes
-    num_edges = dataset[0].num_edges
+    dataset = PygNodePropPredDataset(root="../data/", name=args.dataset_name)
+    split_idx = dataset.get_idx_split()
+    split_idx = {"train_mask": split_idx["train"], "val_mask": split_idx["valid"], "test_mask": split_idx["test"]}
+    data = dataset[0]
+    data.__dict__.update(split_idx)
+    data = data.to(device)
 
-    data = dataset[0].to(device, "x", "y")
     kwargs = {"batch_size": args.batch_size, "num_workers": 6, "persistent_workers": True}
     train_loader = NeighborLoader(data, input_nodes=data.train_mask, num_neighbors=[25, 10], shuffle=True, **kwargs)
     subgraph_loader = NeighborLoader(copy.copy(data), input_nodes=None, num_neighbors=[-1], shuffle=False, **kwargs)
