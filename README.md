@@ -10,7 +10,11 @@ _________________________
 This is the official repository for the paper "Efficient Mixed Precision Quantization in Graph Neural Networks".
 
 ## Getting Started
-1. Clone or download the repository (due to the anonymous process, repository can be downloaded as zip file only).
+1. Clone or download the repository.
+    ```
+    git clone https://github.com/SamirMoustafa/MixQ.git
+    cd MixQ
+    ```
 2. To get started with the project, there are two ways:
    * Use the provided Docker image.
    ```bash
