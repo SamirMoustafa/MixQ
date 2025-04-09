@@ -1,0 +1,27 @@
+num_runs: 3
+dataset_name: ogbn-proteins
+epochs: 200
+hidden_channels: 256
+number_of_layers: 3
+lr: 0.01
+lr_quant: 0.01
+weight_decay: 0.0002
+device: cuda
+log_dir: experimental_logs
+bit_width_lambda: -1e-08
+bit_width_search_space: [2, 4, 8]
+====================================================================================================
+Best bit configuration: [[8, None, 8], [[None, 8, None, 2, 8, None, 8, 8], [None]], [[None, 8, None, 2, 2, None, 8, 8], [None]], [[None, 8, None, 8, 2, None, 8, 8], [None]], [None, 2, 2]]
+Bit operations (BOPs): 1298515746816.00
+Average bit width: 6.11
+Relaxed test rocauc: 0.51
+Full precision test rocauc: 0.63
+Quantized test rocauc: 0.61
+Quantized test rocauc: 0.61
+Quantized test rocauc: 0.62
+====================================================================================================
+Average bit width: 6.11
+Bit operations (BOPs): 1298515746816.00
+Full precision test rocauc: 0.63
+Quantized test rocauc: 0.61 ± 0.00
+====================================================================================================
