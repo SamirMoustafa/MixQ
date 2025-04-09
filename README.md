@@ -25,8 +25,12 @@ This is the official repository for the paper "Efficient Mixed Precision Quantiz
    ```bash
    conda create -n mixq python=3.11.5
    conda activate mixq
-   # Install PyTorch version 2.2.1 that is compatible with the target machine
-   # Install torch_scatter version 2.1.2 that is compatible with PyTorch
+   # Install PyTorch depending on the current machine setup.
+   pip install numpy==1.26.4
+   command -v nvidia-smi > /dev/null && conda install pytorch==2.2.1 torchvision==0.17.1 pytorch-cuda=12.1 -c pytorch -c nvidia || conda install pytorch==2.2.1 torchvision==0.17.1 torchaudio==2.2.1 cpuonly -c pytorch
+   # Install PyG dependencies based on the current PyTorch setup
+   pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f $(python -c "import torch; print('https://data.pyg.org/whl/torch-2.2.1+cu121.html' if torch.cuda.is_available() else 'https://data.pyg.org/whl/torch-2.2.1+cpu.html')")
+   export PYTHONPATH="${PYTHONPATH}:./"
    pip install -r requirements.txt
    ```
 3. (Optional) Verify the installation by running the following command:
@@ -36,8 +40,9 @@ This is the official repository for the paper "Efficient Mixed Precision Quantiz
 4. (Optional) Verify `Quantized Message Passing Schema` theorem only for GCN and GIN examples by running the following commands:
    ```bash
    cd test/
-   python -m unittest ./test/test_graph_conv_module.py
-   python -m unittest ./test/test_graph_iso_module.py 
+   export PYTHONPATH="${PYTHONPATH}:../"
+   python -m unittest ./test_graph_conv_module.py
+   python -m unittest ./test_graph_iso_module.py 
    ```
 ## Reproduce Results
    * Tasks per Node
