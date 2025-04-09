@@ -36,8 +36,8 @@ This is the official repository for the paper "Efficient Mixed Precision Quantiz
 4. (Optional) Verify `Quantized Message Passing Schema` theorem only for GCN and GIN examples by running the following commands:
    ```bash
    cd test/
-   python -m unittest test_graph_conv_module.py
-   python -m unittest test_graph_iso_module.py 
+   python -m unittest ./test/test_graph_conv_module.py
+   python -m unittest ./test/test_graph_iso_module.py 
    ```
 ## Reproduce Results
    * Tasks per Node
