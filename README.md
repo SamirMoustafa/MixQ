@@ -195,4 +195,12 @@ This is the official repository for the paper "Efficient Mixed Precision Quantiz
 ```
 
 ## Citation
-To be updated after the acceptance of the paper.
+```
+@inproceedings{Moustafa2025MixQGNN,
+  author={Samir, Moustafa and Nils, Kriege and  Wilfried, Gansterer},
+  booktitle={2025 IEEE 41st International Conference on Data Engineering (ICDE)}, 
+  title={Efficient Mixed Precision Quantization in Graph Neural Networks}, 
+  year={2025},
+  keywords={Graph neural networks, Quantization},
+  }
+```
