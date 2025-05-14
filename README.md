@@ -44,117 +44,6 @@ This is the official repository for the paper "Efficient Mixed Precision Quantiz
    python -m unittest ./test_graph_conv_module.py
    python -m unittest ./test_graph_iso_module.py 
    ```
-## Reproduce Results
-   * Tasks per Node
-     * Figure 1 can be reproduced by running the following command:
-     ```bash
-        python tasks_per_node/planetoid/plot_ops_vs_acc.py
-        ```
-     * Figure 2 and Figure 3 can be reproduced by running the following command:
-     ```bash
-     python tasks_per_node/planetoid/gcn_planetoid_explore_all.py --dataset_name Cora
-     ```
-     * Figure 6 can be reproduced by running the following command:
-     ```bash
-     python tasks_per_node/planetoid/gcn_planetoid_run_experiments.py
-     ```
-     * Table 1 can be reproduced by running the following commands:
-     ```bash
-     python tasks_per_node/planetoid/gcn_planetoid.py --dataset_name Cora --bit_width_lambda -0.000000001
-     python tasks_per_node/planetoid/gcn_planetoid.py --dataset_name Cora --bit_width_lambda 0.1
-     python tasks_per_node/planetoid/gcn_planetoid.py --dataset_name Cora --bit_width_lambda 1.0
-     python tasks_per_node/planetoid/gcn_planetoid.py --dataset_name CiteSeer --bit_width_lambda -0.000000001
-     python tasks_per_node/planetoid/gcn_planetoid.py --dataset_name CiteSeer --bit_width_lambda 0.1
-     python tasks_per_node/planetoid/gcn_planetoid.py --dataset_name CiteSeer --bit_width_lambda 1.0
-     python tasks_per_node/planetoid/gcn_planetoid.py --dataset_name PubMed --bit_width_lambda -0.000000001
-     python tasks_per_node/planetoid/gcn_planetoid.py --dataset_name PubMed --bit_width_lambda 0.1
-     python tasks_per_node/planetoid/gcn_planetoid.py --dataset_name PubMed --bit_width_lambda 1.0
-     python tasks_per_node/ogbn/gcn_with_ogb.py --dataset_name ogbn-arxiv --bit_width_lambda -0.000000001
-     python tasks_per_node/ogbn/gcn_with_ogb.py --dataset_name ogbn-arxiv --bit_width_lambda 0.1
-     python tasks_per_node/ogbn/gcn_with_ogb.py --dataset_name ogbn-arxiv --bit_width_lambda 1.0
-     ```
-     * Table 2 can be reproduced by running the following commands:
-     ```bash
-     python tasks_per_node/planetoid/gcn_planetoid_with_degree_quant.py --dataset_name Cora --bit_width_lambda -0.000000001
-     python tasks_per_node/planetoid/gcn_planetoid_with_degree_quant.py --dataset_name Cora --bit_width_lambda 0.1
-     python tasks_per_node/planetoid/gcn_planetoid_with_degree_quant.py --dataset_name Cora --bit_width_lambda 1.0
-     ```
-     * Table 4 can be reproduced by running the following commands:
-     ```bash
-     python tasks_per_node/planetoid/gcn_planetoid_random_bit_width.py
-     ```
-* Tasks per Graph
-  * FP32 results for TUDataset in Table 3 can be reproduced by running the following commands:
-  ```bash
-  python examples/gin_tudataset_fp32.py --dataset_name IMDB-BINARY
-  python examples/gin_tudataset_fp32.py --dataset_name PROTEINS
-  python examples/gin_tudataset_fp32.py --dataset_name DD
-  python examples/gin_tudataset_fp32.py --dataset_name REDDIT-BINARY
-  ```
-  * TUDataset results in Table 3 can be reproduced by running the following commands:
-  ```bash
-  # IMDB-BINARY
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda -0.00000001
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda 0.0
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda 0.125
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda 0.25
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda 0.375
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda 0.5
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda 0.625
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda 0.75
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda 0.875
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name IMDB-BINARY --bit_width_lambda 1.0
-  ```
-  ```bash
-  # PROTEINS
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda -0.00000001
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda 0.0
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda 0.125
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda 0.25
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda 0.375
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda 0.5
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda 0.625
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda 0.75
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda 0.875
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name PROTEINS --bit_width_lambda 1.0
-  ```
-  ```bash
-  # DD
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda -0.00000001
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda 0.0
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda 0.125
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda 0.25
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda 0.375
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda 0.5
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda 0.625
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda 0.75
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda 0.875
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name DD --bit_width_lambda 1.0
-  ```
-  ```bash
-  # REDDIT-BINARY
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda -0.00000001
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda 0.0
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda 0.125
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda 0.25
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda 0.375
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda 0.5
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda 0.625
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda 0.75
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda 0.875
-  python tasks_per_graph/tudataset/gin_tudataset_mixed_q.py --dataset_name REDDIT-BINARY --bit_width_lambda 1.0
-  ```
-  * Table 8 can be reproduced by running the following commands:
-  ```bash
-  python tasks_per_graph/synthetic/synthetic_pyg_run.py
-  python tasks_per_graph/synthetic/synthetic_q_run.py --bit_width 1
-  python tasks_per_graph/synthetic/synthetic_q_run.py --bit_width 2
-  python tasks_per_graph/synthetic/synthetic_q_run.py --bit_width 4
-  python tasks_per_graph/synthetic/synthetic_mixed_q_run.py --bit_width_lambda -0.0001
-  python tasks_per_graph/synthetic/synthetic_mixed_q_run.py --bit_width_lambda 0.0
-  python tasks_per_graph/synthetic/synthetic_mixed_q_run.py --bit_width_lambda 0.0001
-  ```
-     
 
 ## Logs Directories of the Experiments
 ```
@@ -196,11 +85,19 @@ This is the official repository for the paper "Efficient Mixed Precision Quantiz
 
 ## Citation
 ```
-@inproceedings{Moustafa2025MixQGNN,
-  author={Samir, Moustafa and Nils, Kriege and  Wilfried, Gansterer},
-  booktitle={2025 IEEE 41st International Conference on Data Engineering (ICDE)}, 
-  title={Efficient Mixed Precision Quantization in Graph Neural Networks}, 
-  year={2025},
-  keywords={Graph neural networks, Quantization},
-  }
+@INPROCEEDINGS {,
+    author = { Moustafa, Samir and Kriege, Nils and Gansterer, Wilfried N. },
+    booktitle = { 2025 IEEE 41st International Conference on Data Engineering (ICDE) },
+    title = {{ Efficient Mixed Precision Quantization in Graph Neural Networks }},
+    year = {2025},
+    ISSN = {2375-026X},
+    pages = {4038-4052},
+    abstract = { Graph Neural Networks (GNNs) have become essential for handling large-scale graph applications. However, the computational demands of GNNs necessitate the development of efficient methods to accelerate inference. Mixed precision quantization emerges as a promising solution to enhance the efficiency of GNN architectures without compromising prediction performance. Compared to conventional deep learning architectures, GNN layers contain a wider set of components that can be quantized, including message passing functions, aggregation functions, update functions, the inputs, learnable parameters, and outputs of these functions. In this paper, we introduce a theorem for efficient quantized message passing to aggregate integer messages. It guarantees numerical equality of the aggregated messages using integer values with respect to those obtained with full (FP32) precision. Based on this theorem, we introduce the Mixed Precision Quantization for GNN (MixQ-GNN) framework, which flexibly selects effective integer bit-widths for all components within GNN layers. Our approach systematically navigates the wide set of possible bit-width combinations, addressing the challenge of optimizing efficiency while aiming at maintaining comparable prediction performance. MixQ-GNN integrates with existing GNN quantization methods, utilizing their graph structure advantages to achieve higher prediction performance. On average, MixQ-GNN achieved reductions in bit operations of 5.5× for node classification and 5.1× for graph classification compared to architectures represented in FP32 precision. },
+    keywords = {graph neural networks;quantization},
+    doi = {10.1109/ICDE65448.2025.00301},
+    url = {https://doi.ieeecomputersociety.org/10.1109/ICDE65448.2025.00301},
+    publisher = {IEEE Computer Society},
+    month =May
+}
+
 ```
