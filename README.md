@@ -85,19 +85,16 @@ This is the official repository for the paper "Efficient Mixed Precision Quantiz
 
 ## Citation
 ```
-@INPROCEEDINGS {,
+@inproceedings{Moustafa2025MixQGNN,
     author = { Moustafa, Samir and Kriege, Nils and Gansterer, Wilfried N. },
     booktitle = { 2025 IEEE 41st International Conference on Data Engineering (ICDE) },
     title = {{ Efficient Mixed Precision Quantization in Graph Neural Networks }},
     year = {2025},
     ISSN = {2375-026X},
     pages = {4038-4052},
-    abstract = { Graph Neural Networks (GNNs) have become essential for handling large-scale graph applications. However, the computational demands of GNNs necessitate the development of efficient methods to accelerate inference. Mixed precision quantization emerges as a promising solution to enhance the efficiency of GNN architectures without compromising prediction performance. Compared to conventional deep learning architectures, GNN layers contain a wider set of components that can be quantized, including message passing functions, aggregation functions, update functions, the inputs, learnable parameters, and outputs of these functions. In this paper, we introduce a theorem for efficient quantized message passing to aggregate integer messages. It guarantees numerical equality of the aggregated messages using integer values with respect to those obtained with full (FP32) precision. Based on this theorem, we introduce the Mixed Precision Quantization for GNN (MixQ-GNN) framework, which flexibly selects effective integer bit-widths for all components within GNN layers. Our approach systematically navigates the wide set of possible bit-width combinations, addressing the challenge of optimizing efficiency while aiming at maintaining comparable prediction performance. MixQ-GNN integrates with existing GNN quantization methods, utilizing their graph structure advantages to achieve higher prediction performance. On average, MixQ-GNN achieved reductions in bit operations of 5.5× for node classification and 5.1× for graph classification compared to architectures represented in FP32 precision. },
-    keywords = {graph neural networks;quantization},
     doi = {10.1109/ICDE65448.2025.00301},
     url = {https://doi.ieeecomputersociety.org/10.1109/ICDE65448.2025.00301},
-    publisher = {IEEE Computer Society},
-    month =May
+    publisher = {IEEE Computer Society}
 }
 
 ```
